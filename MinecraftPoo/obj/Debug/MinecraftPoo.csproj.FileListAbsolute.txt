@@ -1,0 +1,7 @@
+C:\Users\bedyv\source\repos\MinecraftPoo\bin\Debug\MinecraftPoo.exe.config
+C:\Users\bedyv\source\repos\MinecraftPoo\bin\Debug\MinecraftPoo.exe
+C:\Users\bedyv\source\repos\MinecraftPoo\bin\Debug\MinecraftPoo.pdb
+C:\Users\bedyv\source\repos\MinecraftPoo\obj\Debug\MinecraftPoo.csproj.AssemblyReference.cache
+C:\Users\bedyv\source\repos\MinecraftPoo\obj\Debug\MinecraftPoo.csproj.CoreCompileInputs.cache
+C:\Users\bedyv\source\repos\MinecraftPoo\obj\Debug\MinecraftPoo.exe
+C:\Users\bedyv\source\repos\MinecraftPoo\obj\Debug\MinecraftPoo.pdb

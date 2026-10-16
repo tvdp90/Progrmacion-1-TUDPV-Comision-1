@@ -26,6 +26,13 @@ namespace MinecraftPoo
                 return;
             }
 
+            // REGLA: El pico de hierro no puede romper obsidiana.
+            if (b.Tipo == "Obsidiana")
+            {
+                Console.WriteLine("El pico de hierro no es lo suficientemente resistente para picar Obsidiana.");
+                return;
+            }
+
             // Simulamos una extracción más rápida.
             Console.WriteLine(
                 "Picando " + b.Tipo + " con el pico de hierro..."
@@ -36,6 +43,9 @@ namespace MinecraftPoo
             Console.WriteLine(
                 "Bloque extraido rapidamente."
             );
+
+            // El pico de hierro inflige 1 punto de daño al bloque por golpe.
+            b.Romper(1);
 
             // El pico pierde 1 punto por cada golpe.
             Durabilidad--;

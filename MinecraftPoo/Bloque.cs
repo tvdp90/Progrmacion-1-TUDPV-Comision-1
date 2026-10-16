@@ -1,26 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MinecraftPoo
 {
     internal class Bloque
     {
-        // Campos privados: guardan los datos del bloque.
-        // Al ser privados, no se pueden modificar directamente desde otras clases.
         private string tipo;
         private int dureza;
 
-        // Propiedad Tipo: permite consultar y modificar el tipo del bloque.
         public string Tipo
         {
-            get { return tipo; } // Devuelve el tipo del bloque.
-
+            get { return tipo; }
             set
             {
-                // Solo acepta un texto que no esté vacío.
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     tipo = value;
@@ -28,14 +19,11 @@ namespace MinecraftPoo
             }
         }
 
-        // Propiedad Dureza: permite consultar y modificar la dureza.
         public int Dureza
         {
-            get { return dureza; } // Devuelve la dureza.
-
+            get { return dureza; }
             set
             {
-                // Evita que la dureza sea negativa.
                 if (value >= 0)
                 {
                     dureza = value;
@@ -43,20 +31,46 @@ namespace MinecraftPoo
             }
         }
 
-        // Constructor: se ejecuta cuando creamos un bloque.
-        // Recibe el tipo y la dureza como parámetros.
+        // El bloque está roto automáticamente cuando su dureza llega a 0.
+        public bool EstaRoto
+        {
+            get { return dureza <= 0; }
+        }
+
         public Bloque(string tipo, int dureza)
         {
-            // this.Tipo y this.Dureza hacen referencia a las propiedades
-            // del objeto que estamos creando.
             this.Tipo = tipo;
             this.Dureza = dureza;
         }
 
-        // Método que representa la acción de romper un bloque.
-        public void Romper()
+        // Método para reducir la dureza del bloque al ser golpeado
+        public void Romper(int cantidad)
         {
-            Console.WriteLine("Se rompio el bloque de " + Tipo);
+            if (EstaRoto)
+            {
+                Console.WriteLine($"El bloque de {Tipo} ya está roto.");
+                return;
+            }
+
+            Dureza -= cantidad;
+            if (Dureza < 0)
+            {
+                Dureza = 0;
+            }
+
+            Console.WriteLine($"Golpe al bloque de {Tipo}. Dureza restante: {Dureza}");
+
+            if (EstaRoto)
+            {
+                Console.WriteLine($"¡El bloque de {Tipo} se ha roto por completo!");
+            }
+        }
+
+        internal void Romper()
+        {
+            // Default single hit when no amount is provided from the caller.
+            // Use the existing overload that handles validation and messages.
+            Romper(1);
         }
     }
 }

@@ -50,6 +50,9 @@ namespace MinecraftPoo
                 golpes = 0;
             }
 
+            // El pico de diamante inflige 2 puntos de daño al bloque por golpe.
+            b.Romper(2);
+
             // Mostramos la durabilidad que queda.
             Console.WriteLine("Durabilidad restante: " + Durabilidad);
 
